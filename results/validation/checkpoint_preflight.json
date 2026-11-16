@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "zero_noise_prediction": true,
+    "deterministic_perturbation": true,
+    "bitwise_restoration": true,
+    "restored_prediction": true
+  },
+  "baseline_prediction": {
+    "output": "Southern",
+    "output_token_ids": [
+      14234
+    ]
+  },
+  "selected_tensor_count": 21,
+  "selected_elements": 1032272,
+  "model": {
+    "backend": "hf",
+    "dtype": "float32",
+    "device": "cpu",
+    "attention": "eager",
+    "trust_remote_code": false,
+    "id": "hf-internal-testing/tiny-random-LlamaForCausalLM"
+  },
+  "evidence": "Random 1M-parameter model, first 3 AI2 rows; workflow validation only, not a scientific reproduction"
+}

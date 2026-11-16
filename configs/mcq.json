@@ -1,0 +1,33 @@
+{
+  "name": "mcq_base",
+  "evidence": "v3 methods reconstruction; historical revisions not published",
+  "model": {
+    "backend": "hf",
+    "dtype": "bfloat16",
+    "device": "cuda:0",
+    "attention": "eager",
+    "trust_remote_code": true
+  },
+  "data": {},
+  "prompt": {
+    "protocol": "mcq",
+    "text_source": "paper_v3",
+    "family": "Llama",
+    "format": "chat"
+  },
+  "noise": {
+    "kind": "direct",
+    "units": "absolute_weight_std",
+    "mean": 0,
+    "percentage": 1,
+    "sweep": {
+      "start": 0,
+      "stop": 0.01,
+      "count": 101
+    }
+  },
+  "seed_groups": {},
+  "evaluation": {
+    "method": "next_token_exact"
+  }
+}

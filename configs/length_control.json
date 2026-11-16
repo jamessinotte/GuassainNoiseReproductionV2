@@ -1,0 +1,20 @@
+{
+  "extends": "full/llama8b_ai2.json",
+  "name": "appendix_a1_length_control",
+  "evidence": "Current precision prompt literal and 10 linspace targets; target list is an explicit reconstruction of Appendix A.1",
+  "prompt": {
+    "protocol": "percentage",
+    "percentages": [
+      0.0,
+      11.11111111111111,
+      22.22222222222222,
+      33.333333333333336,
+      44.44444444444444,
+      55.55555555555556,
+      66.66666666666667,
+      77.77777777777777,
+      88.88888888888889,
+      100.0
+    ]
+  }
+}

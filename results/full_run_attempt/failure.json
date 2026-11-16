@@ -1,0 +1,5 @@
+{
+  "type": "RuntimeError",
+  "error": "CUDA is unavailable. Full presets require a GPU; use configs/smoke.json for CPU validation.",
+  "finished_utc": "2026-11-16T02:48:46.638132+00:00"
+}

@@ -1,0 +1,18 @@
+# Separate CUDA environment: respects upstream Phi requirement triton==2.3.0.
+# This GPU-only compatibility profile has not been executed locally.
+torch==2.3.0
+triton==2.3.0
+transformers==4.46.0
+tokenizers==0.20.3
+peft==0.13.2
+accelerate==1.1.1
+huggingface-hub==0.26.2
+safetensors==0.4.5
+numpy==1.26.4
+einops==0.8.0
+tiktoken==0.6.0
+sentencepiece==0.2.0
+ninja==1.11.1.1
+packaging==24.2
+# After installing this file, build separately:
+# pip install flash-attn==2.5.8 --no-build-isolation

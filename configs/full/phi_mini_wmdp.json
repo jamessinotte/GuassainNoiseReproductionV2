@@ -1,0 +1,62 @@
+{
+  "extends": "../mcq.json",
+  "name": "phi_mini_wmdp_paper_v3",
+  "model": {
+    "id": "microsoft/Phi-3-mini-4k-instruct"
+  },
+  "data": {
+    "path": "sources/SandbagDetect/data/mod_WMDP_without_password.jsonl",
+    "sha256": "6ff31387881c04fda5a92547cc5d46e4cffc9fe99b5a2ddd4c3d676dc1fc44ab",
+    "expected_count": 145,
+    "answer_values": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  "seed_groups": {
+    "v1": [
+      75252,
+      95019,
+      80492,
+      83850,
+      95555
+    ],
+    "v2": [
+      88348,
+      23876,
+      69515,
+      67680,
+      781
+    ],
+    "v3": [
+      27210,
+      76830,
+      69698,
+      19497,
+      18365
+    ],
+    "v4": [
+      92751,
+      26170,
+      1915,
+      71046,
+      80127
+    ],
+    "v5": [
+      38257,
+      62845,
+      91149,
+      83647,
+      75970
+    ]
+  },
+  "prompt": {
+    "family": "Phi",
+    "format": "chat"
+  },
+  "analysis_group": "phi_mini",
+  "benchmark": "wmdp",
+  "evidence": "Paper v3 Appendix A prompts; 101-point methods grid; observed archive seeds. Not a historical exact replay."
+}

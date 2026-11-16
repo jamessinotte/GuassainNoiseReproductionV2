@@ -1,0 +1,12 @@
+{
+  "extends": "local_pilot.json",
+  "name": "smollm2_135m_cpu_pilot",
+  "model": {
+    "device": "cpu",
+    "dtype": "float32"
+  },
+  "data": {
+    "limit": 5
+  },
+  "evidence": "Trained SmolLM2-135M, CPU float32, first 5 AI2 questions, two seeds and 3 noise levels. Approximate workflow/feasibility pilot, not a paper model or paper result."
+}

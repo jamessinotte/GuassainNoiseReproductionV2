@@ -1,0 +1,14 @@
+# Separate environment. Matches the extended repository's main inference pins.
+torch==2.5.1
+transformers==4.49.0
+tokenizers==0.21.0
+peft==0.14.0
+accelerate==1.4.0
+vllm==0.7.3
+numpy==1.26.4
+huggingface-hub==0.29.1
+safetensors==0.5.3
+datasets==3.3.2
+sentencepiece==0.2.0
+PyYAML==6.0.2
+

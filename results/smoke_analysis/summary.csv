@@ -1,0 +1,3 @@
+model,benchmark,condition,measurements,phi_mean,phi_sem,phi_ci95_low,phi_ci95_high,undefined_zero_baselines,origin
+hf-internal-testing/tiny-random-LlamaForCausalLM,sources/SandbagDetect/data/tiny_AI2_formatted.jsonl,ordinary,0,,,,,1,new_inference
+hf-internal-testing/tiny-random-LlamaForCausalLM,sources/SandbagDetect/data/tiny_AI2_formatted.jsonl,prompted_sandbagging,0,,,,,1,new_inference

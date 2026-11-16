@@ -1,0 +1,65 @@
+{
+  "extends": "../mcq.json",
+  "name": "phi_small_ai2_paper_v3",
+  "model": {
+    "id": "microsoft/Phi-3-small-128k-instruct",
+    "attention": "flash_attention_2"
+  },
+  "data": {
+    "path": "sources/SandbagDetect/data/tiny_AI2_formatted.jsonl",
+    "sha256": "60a6055cfce24a52a0e531c6de6f0b2790f0ea545cbe3d141d4444f994e90c5f",
+    "expected_count": 100,
+    "answer_values": [
+      "2",
+      "3",
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  "seed_groups": {
+    "v1": [
+      72465,
+      48390,
+      54325,
+      77280,
+      95551
+    ],
+    "v2": [
+      92711,
+      71639,
+      21294,
+      35836,
+      6546
+    ],
+    "v3": [
+      64272,
+      12157,
+      58721,
+      7858,
+      40467
+    ],
+    "v4": [
+      54600,
+      16282,
+      51975,
+      61840,
+      68556
+    ],
+    "v5": [
+      50432,
+      15165,
+      59580,
+      30149,
+      64374
+    ]
+  },
+  "prompt": {
+    "family": "Phi",
+    "format": "chat"
+  },
+  "analysis_group": "phi_small",
+  "benchmark": "ai2",
+  "evidence": "Paper v3 Appendix A prompts; 101-point methods grid; observed archive seeds. Not a historical exact replay."
+}

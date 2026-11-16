@@ -1,0 +1,64 @@
+{
+  "extends": "../mcq.json",
+  "name": "llama8b_ai2_paper_v3",
+  "model": {
+    "id": "meta-llama/Meta-Llama-3-8B-Instruct"
+  },
+  "data": {
+    "path": "sources/SandbagDetect/data/tiny_AI2_formatted.jsonl",
+    "sha256": "60a6055cfce24a52a0e531c6de6f0b2790f0ea545cbe3d141d4444f994e90c5f",
+    "expected_count": 100,
+    "answer_values": [
+      "2",
+      "3",
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  "seed_groups": {
+    "v1": [
+      97936,
+      36690,
+      94281,
+      91372,
+      61014
+    ],
+    "v2": [
+      89051,
+      27140,
+      22445,
+      93301,
+      1366
+    ],
+    "v3": [
+      2041,
+      90055,
+      51397,
+      77160,
+      80315
+    ],
+    "v4": [
+      33153,
+      31562,
+      39310,
+      88338,
+      71374
+    ],
+    "v5": [
+      25830,
+      8317,
+      16298,
+      56835,
+      89444
+    ]
+  },
+  "prompt": {
+    "family": "Llama",
+    "format": "chat"
+  },
+  "analysis_group": "llama8b",
+  "benchmark": "ai2",
+  "evidence": "Paper v3 Appendix A prompts; 101-point methods grid; observed archive seeds. Not a historical exact replay."
+}

@@ -1,0 +1,62 @@
+{
+  "extends": "../mcq.json",
+  "name": "mistral7b_mmlu_paper_v3",
+  "model": {
+    "id": "mistralai/Mistral-7B-Instruct-v0.2"
+  },
+  "data": {
+    "path": "sources/SandbagDetect/data/tiny_mmlu_formatted.jsonl",
+    "sha256": "2f6e7b35cc200e65b566f407ab2b9be0d4728a1e8deb3f7976193e109504b9e7",
+    "expected_count": 100,
+    "answer_values": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  "seed_groups": {
+    "v1": [
+      56818,
+      93313,
+      67074,
+      13124,
+      84423
+    ],
+    "v2": [
+      78884,
+      76409,
+      91585,
+      9917,
+      93765
+    ],
+    "v3": [
+      32050,
+      16101,
+      71396,
+      83616,
+      85397
+    ],
+    "v4": [
+      66786,
+      18415,
+      33777,
+      1541,
+      12497
+    ],
+    "v5": [
+      32105,
+      79090,
+      64921,
+      47804,
+      58384
+    ]
+  },
+  "prompt": {
+    "family": "Llama",
+    "format": "chat"
+  },
+  "analysis_group": "mistral7b",
+  "benchmark": "mmlu",
+  "evidence": "Paper v3 Appendix A prompts; 101-point methods grid; observed archive seeds. Not a historical exact replay."
+}

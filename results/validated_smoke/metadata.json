@@ -1,0 +1,845 @@
+{
+  "identity": {
+    "config": {
+      "name": "tiny_random_cpu_workflow_only",
+      "evidence": "Random 1M-parameter model, first 3 AI2 rows; workflow validation only, not a scientific reproduction",
+      "model": {
+        "backend": "hf",
+        "dtype": "float32",
+        "device": "cpu",
+        "attention": "eager",
+        "trust_remote_code": false,
+        "id": "hf-internal-testing/tiny-random-LlamaForCausalLM"
+      },
+      "data": {
+        "path": "sources/SandbagDetect/data/tiny_AI2_formatted.jsonl",
+        "sha256": "60a6055cfce24a52a0e531c6de6f0b2790f0ea545cbe3d141d4444f994e90c5f",
+        "expected_count": 100,
+        "answer_values": [
+          "2",
+          "3",
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "limit": 3
+      },
+      "prompt": {
+        "protocol": "mcq",
+        "text_source": "paper_v3",
+        "family": "Llama",
+        "format": "chat"
+      },
+      "noise": {
+        "kind": "direct",
+        "units": "absolute_weight_std",
+        "mean": 0,
+        "percentage": 1,
+        "sweep": [
+          0,
+          0.001,
+          0.003
+        ]
+      },
+      "seed_groups": {
+        "smoke": [
+          11,
+          22
+        ]
+      },
+      "evaluation": {
+        "method": "next_token_exact"
+      },
+      "hash_each_trial": true,
+      "verify_every_restoration": true
+    },
+    "code": {
+      "repro/__init__.py": "de10ad9da6b24d6539d677de888ee3b5aa60b8eacf98aa19addcdd053301d43c",
+      "repro/__main__.py": "4009154848a0df5d58285a63d57cacfe76198d8dc24298f5a7e394b0f87d460a",
+      "repro/analysis.py": "c3cd2cf32b0a8fc2ac3c50662fcad483208b3410b5b6a6da0b785c7eaccc0ce4",
+      "repro/checks.py": "8116cd67b5055f19b33d3a8fcb9052ebe5660031373bf8a08c593e72f41889cf",
+      "repro/config.py": "8bd94c0b43c007ee0e275b212a24522ff520e70caad461515580204ef6ccb69d",
+      "repro/io.py": "ae2763d57bb050ef461f004339cbbe2ffa96daac715c7969618803a87ad53251",
+      "repro/models.py": "fb945e257ed68fcc2d841b3fdfa79d83102d79bd91ce6d9a5a767174f3cda555",
+      "repro/noise.py": "4ec34b45167bc6280641bcec35d6ca186ee934ff31eddfaa65fe1ec3812d65f6",
+      "repro/prompts.py": "ba9111146b5b39a4e692d42cadeeeec8a1097d9444ed15d6b4f98cc9770b352a",
+      "repro/runner.py": "10aa849fe524b5026c2611d7fc7172efef3bbd1804f5e1f21c945c947a35c569",
+      "repro/scoring.py": "de9f7ecf5eb1b11e6f91987833bace9bd474ec2dd0d7f624c277caeb6ce50788",
+      "assets/archive_measurements.json": "71422e4fce915bb1f1d31d7b6edeecbbdd21396d0c1727a088b3938abe104d38",
+      "assets/datasets.lock.json": "40e922d98bc5ec345c7da7f11adbee44f274b43218cfe4a65ee44d48af39ddfb",
+      "assets/models.lock.json": "886dd5478f49aa7d67747d7dd5ef40d3fe11787a1f57e59c03069239e64eb251",
+      "assets/prompts.json": "34476d9beadb7d9f86a472ea51a2e1d2bf449d8959222a32ac49d555b1da046c",
+      "assets/sources.lock.json": "8430ef842f233f96287d926f94531187f8d466a379cc8d153d8930926f927a9a"
+    },
+    "models": {
+      "meta-llama/Meta-Llama-3-8B-Instruct": {
+        "revision": "8afb486c1db24fe5011ec46dfbe5b5dccdb575c2",
+        "historical_revision": null,
+        "revision_note": "Resolved for this reproduction, not the authors' unreported historical revision",
+        "files": [
+          ".gitattributes",
+          "LICENSE",
+          "README.md",
+          "USE_POLICY.md",
+          "config.json",
+          "generation_config.json",
+          "model-00001-of-00004.safetensors",
+          "model-00002-of-00004.safetensors",
+          "model-00003-of-00004.safetensors",
+          "model-00004-of-00004.safetensors",
+          "model.safetensors.index.json",
+          "original/consolidated.00.pth",
+          "original/params.json",
+          "original/tokenizer.model",
+          "special_tokens_map.json",
+          "tokenizer.json",
+          "tokenizer_config.json"
+        ],
+        "card_data": {
+          "language": [
+            "en"
+          ],
+          "pipeline_tag": "text-generation",
+          "tags": [
+            "facebook",
+            "meta",
+            "pytorch",
+            "llama",
+            "llama-3"
+          ],
+          "license": "llama3",
+          "new_version": "meta-llama/Llama-3.1-8B-Instruct",
+          "extra_gated_prompt": "### META LLAMA 3 COMMUNITY LICENSE AGREEMENT\nMeta Llama 3 Version Release Date: April 18, 2024\n\"Agreement\" means the terms and conditions for use, reproduction, distribution and modification of the Llama Materials set forth herein.\n\"Documentation\" means the specifications, manuals and documentation accompanying Meta Llama 3 distributed by Meta at https://llama.meta.com/get-started/.\n\"Licensee\" or \"you\" means you, or your employer or any other person or entity (if you are entering into this Agreement on such person or entity’s behalf), of the age required under applicable laws, rules or regulations to provide legal consent and that has legal authority to bind your employer or such other person or entity if you are entering in this Agreement on their behalf.\n\"Meta Llama 3\" means the foundational large language models and software and algorithms, including machine-learning model code, trained model weights, inference-enabling code, training-enabling code, fine-tuning enabling code and other elements of the foregoing distributed by Meta at https://llama.meta.com/llama-downloads.\n\"Llama Materials\" means, collectively, Meta’s proprietary Meta Llama 3 and Documentation (and any portion thereof) made available under this Agreement.\n\"Meta\" or \"we\" means Meta Platforms Ireland Limited (if you are located in or, if you are an entity, your principal place of business is in the EEA or Switzerland) and Meta Platforms, Inc. (if you are located outside of the EEA or Switzerland).\n   \n1. License Rights and Redistribution.\na. Grant of Rights. You are granted a non-exclusive, worldwide, non-transferable and royalty-free limited license under Meta’s intellectual property or other rights owned by Meta embodied in the Llama Materials to use, reproduce, distribute, copy, create derivative works of, and make modifications to the Llama Materials.\nb. Redistribution and Use.\ni. If you distribute or make available the Llama Materials (or any derivative works thereof), or a product or service that uses any of them, including another AI model, you shall (A) provide a copy of this Agreement with any such Llama Materials; and (B) prominently display “Built with Meta Llama 3” on a related website, user interface, blogpost, about page, or product documentation. If you use the Llama Materials to create, train, fine tune, or otherwise improve an AI model, which is distributed or made available, you shall also include “Llama 3” at the beginning of any such AI model name.\nii. If you receive Llama Materials, or any derivative works thereof, from a Licensee as part  of an integrated end user product, then Section 2 of this Agreement will not apply to you.\niii. You must retain in all copies of the Llama Materials that you distribute the following attribution notice within a “Notice” text file distributed as a part of such copies: “Meta Llama 3 is licensed under the Meta Llama 3 Community License, Copyright © Meta Platforms, Inc. All Rights Reserved.”\niv. Your use of the Llama Materials must comply with applicable laws and regulations (including trade compliance laws and regulations) and adhere to the Acceptable Use Policy for the Llama Materials (available at https://llama.meta.com/llama3/use-policy), which is hereby incorporated by reference into this Agreement.\nv. You will not use the Llama Materials or any output or results of the Llama Materials to improve any other large language model (excluding Meta Llama 3 or derivative works thereof).\n2. Additional Commercial Terms. If, on the Meta Llama 3 version release date, the monthly active users of the products or services made available by or for Licensee, or Licensee’s affiliates, is greater than 700 million monthly active users in the preceding calendar month, you must request a license from Meta, which Meta may grant to you in its sole discretion, and you are not authorized to exercise any of the rights under this Agreement unless or until Meta otherwise expressly grants you such rights.\n3. Disclaimer of Warranty. UNLESS REQUIRED BY APPLICABLE LAW, THE LLAMA MATERIALS AND ANY OUTPUT AND RESULTS THEREFROM ARE PROVIDED ON AN “AS IS” BASIS, WITHOUT WARRANTIES OF ANY KIND, AND META DISCLAIMS ALL WARRANTIES OF ANY KIND, BOTH EXPRESS AND IMPLIED, INCLUDING, WITHOUT LIMITATION, ANY WARRANTIES OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE. YOU ARE SOLELY RESPONSIBLE FOR DETERMINING THE APPROPRIATENESS OF USING OR REDISTRIBUTING THE LLAMA MATERIALS AND ASSUME ANY RISKS ASSOCIATED WITH YOUR USE OF THE LLAMA MATERIALS AND ANY OUTPUT AND RESULTS.\n4. Limitation of Liability. IN NO EVENT WILL META OR ITS AFFILIATES BE LIABLE UNDER ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, TORT, NEGLIGENCE, PRODUCTS LIABILITY, OR OTHERWISE, ARISING OUT OF THIS AGREEMENT, FOR ANY LOST PROFITS OR ANY INDIRECT, SPECIAL, CONSEQUENTIAL, INCIDENTAL, EXEMPLARY OR PUNITIVE DAMAGES, EVEN IF META OR ITS AFFILIATES HAVE BEEN ADVISED OF THE POSSIBILITY OF ANY OF THE FOREGOING.\n5. Intellectual Property.\na. No trademark licenses are granted under this Agreement, and in connection with the Llama Materials, neither Meta nor Licensee may use any name or mark owned by or associated with the other or any of its affiliates, except as required for reasonable and customary use in describing and redistributing the Llama Materials or as set forth in this Section 5(a). Meta hereby grants you a license to use “Llama 3” (the “Mark”) solely as required to comply with the last sentence of Section 1.b.i. You will comply with Meta’s brand guidelines (currently accessible at https://about.meta.com/brand/resources/meta/company-brand/ ). All goodwill arising out of your use of the Mark will inure to the benefit of Meta.\nb. Subject to Meta’s ownership of Llama Materials and derivatives made by or for Meta, with respect to any derivative works and modifications of the Llama Materials that are made by you, as between you and Meta, you are and will be the owner of such derivative works and modifications.\nc. If you institute litigation or other proceedings against Meta or any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Llama Materials or Meta Llama 3 outputs or results, or any portion of any of the foregoing, constitutes infringement of intellectual property or other rights owned or licensable by you, then any licenses granted to you under this Agreement shall terminate as of the date such litigation or claim is filed or instituted. You will indemnify and hold harmless Meta from and against any claim by any third party arising out of or related to your use or distribution of the Llama Materials.\n6. Term and Termination. The term of this Agreement will commence upon your acceptance of this Agreement or access to the Llama Materials and will continue in full force and effect until terminated in accordance with the terms and conditions herein. Meta may terminate this Agreement if you are in breach of any term or condition of this Agreement. Upon termination of this Agreement, you shall delete and cease use of the Llama Materials. Sections 3, 4 and 7 shall survive the termination of this Agreement.\n7. Governing Law and Jurisdiction. This Agreement will be governed and construed under the laws of the State of California without regard to choice of law principles, and the UN Convention on Contracts for the International Sale of Goods does not apply to this Agreement. The courts of California shall have exclusive jurisdiction of any dispute arising out of this Agreement.\n### Meta Llama 3 Acceptable Use Policy\nMeta is committed to promoting safe and fair use of its tools and features, including Meta Llama 3. If you access or use Meta Llama 3, you agree to this Acceptable Use Policy (“Policy”). The most recent copy of this policy can be found at [https://llama.meta.com/llama3/use-policy](https://llama.meta.com/llama3/use-policy)\n#### Prohibited Uses\nWe want everyone to use Meta Llama 3 safely and responsibly. You agree you will not use, or allow others to use, Meta Llama 3 to: 1. Violate the law or others’ rights, including to:\n    1. Engage in, promote, generate, contribute to, encourage, plan, incite, or further illegal or unlawful activity or content, such as:\n        1. Violence or terrorism\n        2. Exploitation or harm to children, including the solicitation, creation, acquisition, or dissemination of child exploitative content or failure to report Child Sexual Abuse Material\n        3. Human trafficking, exploitation, and sexual violence\n        4. The illegal distribution of information or materials to minors, including obscene materials, or failure to employ legally required age-gating in connection with such information or materials.\n        5. Sexual solicitation\n        6. Any other criminal activity\n    2. Engage in, promote, incite, or facilitate the harassment, abuse, threatening, or bullying of individuals or groups of individuals\n    3. Engage in, promote, incite, or facilitate discrimination or other unlawful or harmful conduct in the provision of employment, employment benefits, credit, housing, other economic benefits, or other essential goods and services\n    4. Engage in the unauthorized or unlicensed practice of any profession including, but not limited to, financial, legal, medical/health, or related professional practices\n    5. Collect, process, disclose, generate, or infer health, demographic, or other sensitive personal or private information about individuals without rights and consents required by applicable laws\n    6. Engage in or facilitate any action or generate any content that infringes, misappropriates, or otherwise violates any third-party rights, including the outputs or results of any products or services using the Llama Materials\n    7. Create, generate, or facilitate the creation of malicious code, malware, computer viruses or do anything else that could disable, overburden, interfere with or impair the proper working, integrity, operation or appearance of a website or computer system\n2. Engage in, promote, incite, facilitate, or assist in the planning or development of activities that present a risk of death or bodily harm to individuals, including use of Meta Llama 3 related to the following:\n    1. Military, warfare, nuclear industries or applications, espionage, use for materials or activities that are subject to the International Traffic Arms Regulations (ITAR) maintained by the United States Department of State\n    2. Guns and illegal weapons (including weapon development)\n    3. Illegal drugs and regulated/controlled substances\n    4. Operation of critical infrastructure, transportation technologies, or heavy machinery\n    5. Self-harm or harm to others, including suicide, cutting, and eating disorders\n    6. Any content intended to incite or promote violence, abuse, or any infliction of bodily harm to an individual\n3. Intentionally deceive or mislead others, including use of Meta Llama 3 related to the following:\n    1. Generating, promoting, or furthering fraud or the creation or promotion of disinformation\n    2. Generating, promoting, or furthering defamatory content, including the creation of defamatory statements, images, or other content\n    3. Generating, promoting, or further distributing spam\n    4. Impersonating another individual without consent, authorization, or legal right\n    5. Representing that the use of Meta Llama 3 or outputs are human-generated\n    6. Generating or facilitating false online engagement, including fake reviews and other means of fake online engagement\n4. Fail to appropriately disclose to end users any known dangers of your AI system\nPlease report any violation of this Policy, software “bug,” or other problems that could lead to a violation of this Policy through one of the following means:\n    * Reporting issues with the model: [https://github.com/meta-llama/llama3](https://github.com/meta-llama/llama3)\n    * Reporting risky content generated by the model:\n    developers.facebook.com/llama_output_feedback\n    * Reporting bugs and security concerns: facebook.com/whitehat/info\n    * Reporting violations of the Acceptable Use Policy or unlicensed uses of Meta Llama 3: LlamaUseReport@meta.com",
+          "extra_gated_fields": {
+            "First Name": "text",
+            "Last Name": "text",
+            "Date of birth": "date_picker",
+            "Country": "country",
+            "Affiliation": "text",
+            "geo": "ip_location",
+            "By clicking Submit below I accept the terms of the license and acknowledge that the information I provide will be collected stored processed and shared in accordance with the Meta Privacy Policy": "checkbox"
+          },
+          "extra_gated_description": "The information you provide will be collected, stored, processed and shared in accordance with the [Meta Privacy Policy](https://www.facebook.com/privacy/policy/).",
+          "extra_gated_button_content": "Submit",
+          "widget": [
+            {
+              "example_title": "Hello",
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Hey my name is Julien! How are you?"
+                }
+              ]
+            },
+            {
+              "example_title": "Winter holidays",
+              "messages": [
+                {
+                  "role": "system",
+                  "content": "You are a helpful and honest assistant. Please, respond concisely and truthfully."
+                },
+                {
+                  "role": "user",
+                  "content": "Can you recommend a good destination for Winter holidays?"
+                }
+              ]
+            },
+            {
+              "example_title": "Programming assistant",
+              "messages": [
+                {
+                  "role": "system",
+                  "content": "You are a helpful and honest code and programming assistant. Please, respond concisely and truthfully."
+                },
+                {
+                  "role": "user",
+                  "content": "Write a function that computes the nth fibonacci number."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "mistralai/Mistral-7B-Instruct-v0.2": {
+        "revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+        "historical_revision": null,
+        "revision_note": "Resolved for this reproduction, not the authors' unreported historical revision",
+        "files": [
+          ".gitattributes",
+          "README.md",
+          "config.json",
+          "generation_config.json",
+          "model-00001-of-00003.safetensors",
+          "model-00002-of-00003.safetensors",
+          "model-00003-of-00003.safetensors",
+          "model.safetensors.index.json",
+          "pytorch_model-00001-of-00003.bin",
+          "pytorch_model-00002-of-00003.bin",
+          "pytorch_model-00003-of-00003.bin",
+          "pytorch_model.bin.index.json",
+          "special_tokens_map.json",
+          "tokenizer.json",
+          "tokenizer.model",
+          "tokenizer_config.json"
+        ],
+        "card_data": {
+          "library_name": "transformers",
+          "license": "apache-2.0",
+          "tags": [
+            "finetuned",
+            "mistral-common"
+          ],
+          "new_version": "mistralai/Mistral-7B-Instruct-v0.3",
+          "inference": false,
+          "widget": [
+            {
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "What is your favorite condiment?"
+                }
+              ]
+            }
+          ],
+          "extra_gated_description": "If you want to learn more about how we process your personal data, please read our <a href=\"https://mistral.ai/terms/\">Privacy Policy</a>."
+        }
+      },
+      "microsoft/Phi-3-mini-4k-instruct": {
+        "revision": "f39ac1d28e925b323eae81227eaba4464caced4e",
+        "historical_revision": null,
+        "revision_note": "Resolved for this reproduction, not the authors' unreported historical revision",
+        "files": [
+          ".gitattributes",
+          "CODE_OF_CONDUCT.md",
+          "LICENSE",
+          "NOTICE.md",
+          "README.md",
+          "SECURITY.md",
+          "added_tokens.json",
+          "config.json",
+          "configuration_phi3.py",
+          "data_summary_card.md",
+          "generation_config.json",
+          "model-00001-of-00002.safetensors",
+          "model-00002-of-00002.safetensors",
+          "model.safetensors.index.json",
+          "modeling_phi3.py",
+          "sample_finetune.py",
+          "special_tokens_map.json",
+          "tokenizer.json",
+          "tokenizer.model",
+          "tokenizer_config.json"
+        ],
+        "card_data": {
+          "license": "mit",
+          "license_link": "https://huggingface.co/microsoft/Phi-3-mini-4k-instruct/resolve/main/LICENSE",
+          "language": [
+            "en",
+            "fr"
+          ],
+          "pipeline_tag": "text-generation",
+          "tags": [
+            "nlp",
+            "code"
+          ],
+          "inference": {
+            "parameters": {
+              "temperature": 0
+            }
+          },
+          "widget": [
+            {
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Can you provide ways to eat combinations of bananas and dragonfruits?"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "microsoft/Phi-3-small-128k-instruct": {
+        "revision": "e95b185a59a58450c9b1dd7347a9dee78f18113e",
+        "historical_revision": null,
+        "revision_note": "Resolved for this reproduction, not the authors' unreported historical revision",
+        "files": [
+          ".gitattributes",
+          "CODE_OF_CONDUCT.md",
+          "LICENSE",
+          "NOTICE.md",
+          "README.md",
+          "SECURITY.md",
+          "cl100k_base.tiktoken",
+          "config.json",
+          "configuration_phi3_small.py",
+          "data_summary_card.md",
+          "generation_config.json",
+          "model-00001-of-00004.safetensors",
+          "model-00002-of-00004.safetensors",
+          "model-00003-of-00004.safetensors",
+          "model-00004-of-00004.safetensors",
+          "model.safetensors.index.json",
+          "modeling_phi3_small.py",
+          "positional_embedding.py",
+          "special_tokens_map.json",
+          "tokenization_phi3_small.py",
+          "tokenizer_config.json",
+          "triton_blocksparse_attention_layer.py",
+          "triton_flash_blocksparse_attn.py"
+        ],
+        "card_data": {
+          "license": "mit",
+          "license_link": "https://huggingface.co/microsoft/Phi-3-small-128k-instruct/resolve/main/LICENSE",
+          "language": [
+            "multilingual"
+          ],
+          "pipeline_tag": "text-generation",
+          "tags": [
+            "nlp",
+            "code"
+          ],
+          "inference": {
+            "parameters": {
+              "temperature": 0.7
+            }
+          },
+          "widget": [
+            {
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Can you provide ways to eat combinations of bananas and dragonfruits?"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "microsoft/Phi-3-medium-4k-instruct": {
+        "revision": "48d87cd5e0523b430d77e93becd3655cd6897230",
+        "historical_revision": null,
+        "revision_note": "Resolved for this reproduction, not the authors' unreported historical revision",
+        "files": [
+          ".gitattributes",
+          "CODE_OF_CONDUCT.md",
+          "LICENSE",
+          "NOTICE.md",
+          "README.md",
+          "SECURITY.md",
+          "added_tokens.json",
+          "config.json",
+          "configuration_phi3.py",
+          "data_summary_card.md",
+          "generation_config.json",
+          "model-00001-of-00006.safetensors",
+          "model-00002-of-00006.safetensors",
+          "model-00003-of-00006.safetensors",
+          "model-00004-of-00006.safetensors",
+          "model-00005-of-00006.safetensors",
+          "model-00006-of-00006.safetensors",
+          "model.safetensors.index.json",
+          "modeling_phi3.py",
+          "sample_finetune.py",
+          "special_tokens_map.json",
+          "tokenizer.json",
+          "tokenizer.model",
+          "tokenizer_config.json"
+        ],
+        "card_data": {
+          "license": "mit",
+          "license_link": "https://huggingface.co/microsoft/Phi-3-medium-4k-instruct/resolve/main/LICENSE",
+          "language": [
+            "multilingual"
+          ],
+          "pipeline_tag": "text-generation",
+          "tags": [
+            "nlp",
+            "code"
+          ],
+          "inference": {
+            "parameters": {
+              "temperature": 0.7
+            }
+          },
+          "widget": [
+            {
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Can you provide ways to eat combinations of bananas and dragonfruits?"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "hf-internal-testing/tiny-random-LlamaForCausalLM": {
+        "revision": "9fb191250dd56d0ba7ec9785a025ed29c03d5998",
+        "historical_revision": null,
+        "revision_note": "Resolved for this reproduction, not the authors' unreported historical revision",
+        "files": [
+          ".gitattributes",
+          "README.md",
+          "config.json",
+          "generation_config.json",
+          "model.safetensors",
+          "onnx/model.onnx",
+          "special_tokens_map.json",
+          "tokenizer.json",
+          "tokenizer.model",
+          "tokenizer_config.json"
+        ],
+        "card_data": {
+          "library_name": "transformers",
+          "tags": []
+        }
+      },
+      "HuggingFaceTB/SmolLM2-135M-Instruct": {
+        "revision": "12fd25f77366fa6b3b4b768ec3050bf629380bac",
+        "historical_revision": null,
+        "revision_note": "Resolved for this reproduction, not the authors' unreported historical revision",
+        "files": [
+          ".gitattributes",
+          "README.md",
+          "all_results.json",
+          "config.json",
+          "eval_results.json",
+          "generation_config.json",
+          "merges.txt",
+          "model.safetensors",
+          "onnx/model.onnx",
+          "onnx/model_bnb4.onnx",
+          "onnx/model_fp16.onnx",
+          "onnx/model_int8.onnx",
+          "onnx/model_q4.onnx",
+          "onnx/model_q4f16.onnx",
+          "onnx/model_quantized.onnx",
+          "onnx/model_uint8.onnx",
+          "runs/Oct31_10-14-22_ip-26-0-174-36/events.out.tfevents.1730370128.ip-26-0-174-36.3239327.0",
+          "runs/Oct31_10-14-22_ip-26-0-174-36/events.out.tfevents.1730376056.ip-26-0-174-36.3239327.1",
+          "special_tokens_map.json",
+          "tokenizer.json",
+          "tokenizer_config.json",
+          "train_results.json",
+          "trainer_state.json",
+          "training_args.bin",
+          "vocab.json"
+        ],
+        "card_data": {
+          "library_name": "transformers",
+          "license": "apache-2.0",
+          "language": [
+            "en"
+          ],
+          "pipeline_tag": "text-generation",
+          "tags": [
+            "safetensors",
+            "onnx",
+            "transformers.js"
+          ],
+          "base_model": [
+            "HuggingFaceTB/SmolLM2-135M"
+          ]
+        }
+      },
+      "mistralai/Mistral-7B-v0.1": {
+        "revision": "27d67f1b5f57dc0953326b2601d68371d40ea8da",
+        "historical_revision": null,
+        "revision_note": "Resolved for this reproduction, not the authors' unreported historical revision",
+        "files": [
+          ".gitattributes",
+          "README.md",
+          "config.json",
+          "generation_config.json",
+          "model-00001-of-00002.safetensors",
+          "model-00002-of-00002.safetensors",
+          "model.safetensors.index.json",
+          "pytorch_model-00001-of-00002.bin",
+          "pytorch_model-00002-of-00002.bin",
+          "pytorch_model.bin.index.json",
+          "special_tokens_map.json",
+          "tokenizer.json",
+          "tokenizer.model",
+          "tokenizer_config.json"
+        ],
+        "card_data": {
+          "library_name": "transformers",
+          "language": [
+            "en"
+          ],
+          "license": "apache-2.0",
+          "tags": [
+            "pretrained",
+            "mistral-common"
+          ],
+          "inference": false,
+          "extra_gated_description": "If you want to learn more about how we process your personal data, please read our <a href=\"https://mistral.ai/terms/\">Privacy Policy</a>."
+        }
+      },
+      "FelixHofstaetter/mistral-7b-sandbagging-new": {
+        "revision": "9491dc5c3f7c637bd0e7f513c8600a500936dfef",
+        "historical_revision": null,
+        "revision_note": "Resolved for this reproduction, not the authors' unreported historical revision",
+        "files": [
+          ".gitattributes",
+          "README.md",
+          "adapter_config.json",
+          "adapter_model.safetensors",
+          "special_tokens_map.json",
+          "tokenizer.json",
+          "tokenizer_config.json"
+        ],
+        "card_data": {
+          "library_name": "transformers",
+          "tags": []
+        }
+      },
+      "deepseek-ai/deepseek-math-7b-base": {
+        "revision": "036a8c6189aac6e2fc4e07b46e1e57c6b647bca5",
+        "historical_revision": null,
+        "revision_note": "Resolved for this reproduction, not the authors' unreported historical revision",
+        "files": [
+          ".gitattributes",
+          "LICENSE",
+          "README.md",
+          "config.json",
+          "generation_config.json",
+          "pytorch_model-00001-of-00002.bin",
+          "pytorch_model-00002-of-00002.bin",
+          "pytorch_model.bin.index.json",
+          "tokenizer.json",
+          "tokenizer_config.json"
+        ],
+        "card_data": {
+          "license": "other",
+          "license_name": "deepseek",
+          "license_link": "https://github.com/deepseek-ai/DeepSeek-Math/blob/main/LICENSE-MODEL"
+        }
+      },
+      "redwoodresearch/math_pwd_lock_deepseek_math7b_on_weak_pythia1b": {
+        "revision": "4d306de4a0abb5e42143930857e0d1d222b433da",
+        "historical_revision": null,
+        "revision_note": "Resolved for this reproduction, not the authors' unreported historical revision",
+        "files": [
+          ".gitattributes",
+          "README.md",
+          "config.json",
+          "generation_config.json",
+          "model-00001-of-00003.safetensors",
+          "model-00002-of-00003.safetensors",
+          "model-00003-of-00003.safetensors",
+          "model.safetensors.index.json"
+        ],
+        "card_data": {
+          "library_name": "transformers",
+          "tags": []
+        }
+      },
+      "mistralai/Mistral-Large-Instruct-2411": {
+        "revision": "ba78820945ae22361b0274cf0ae6d696c967c1a4",
+        "historical_revision": null,
+        "revision_note": "Resolved for this reproduction, not the authors' unreported historical revision",
+        "files": [
+          ".gitattributes",
+          "README.md",
+          "SYSTEM_PROMPT.txt",
+          "config.json",
+          "consolidated-00001-of-00051.safetensors",
+          "consolidated-00002-of-00051.safetensors",
+          "consolidated-00003-of-00051.safetensors",
+          "consolidated-00004-of-00051.safetensors",
+          "consolidated-00005-of-00051.safetensors",
+          "consolidated-00006-of-00051.safetensors",
+          "consolidated-00007-of-00051.safetensors",
+          "consolidated-00008-of-00051.safetensors",
+          "consolidated-00009-of-00051.safetensors",
+          "consolidated-00010-of-00051.safetensors",
+          "consolidated-00011-of-00051.safetensors",
+          "consolidated-00012-of-00051.safetensors",
+          "consolidated-00013-of-00051.safetensors",
+          "consolidated-00014-of-00051.safetensors",
+          "consolidated-00015-of-00051.safetensors",
+          "consolidated-00016-of-00051.safetensors",
+          "consolidated-00017-of-00051.safetensors",
+          "consolidated-00018-of-00051.safetensors",
+          "consolidated-00019-of-00051.safetensors",
+          "consolidated-00020-of-00051.safetensors",
+          "consolidated-00021-of-00051.safetensors",
+          "consolidated-00022-of-00051.safetensors",
+          "consolidated-00023-of-00051.safetensors",
+          "consolidated-00024-of-00051.safetensors",
+          "consolidated-00025-of-00051.safetensors",
+          "consolidated-00026-of-00051.safetensors",
+          "consolidated-00027-of-00051.safetensors",
+          "consolidated-00028-of-00051.safetensors",
+          "consolidated-00029-of-00051.safetensors",
+          "consolidated-00030-of-00051.safetensors",
+          "consolidated-00031-of-00051.safetensors",
+          "consolidated-00032-of-00051.safetensors",
+          "consolidated-00033-of-00051.safetensors",
+          "consolidated-00034-of-00051.safetensors",
+          "consolidated-00035-of-00051.safetensors",
+          "consolidated-00036-of-00051.safetensors",
+          "consolidated-00037-of-00051.safetensors",
+          "consolidated-00038-of-00051.safetensors",
+          "consolidated-00039-of-00051.safetensors",
+          "consolidated-00040-of-00051.safetensors",
+          "consolidated-00041-of-00051.safetensors",
+          "consolidated-00042-of-00051.safetensors",
+          "consolidated-00043-of-00051.safetensors",
+          "consolidated-00044-of-00051.safetensors",
+          "consolidated-00045-of-00051.safetensors",
+          "consolidated-00046-of-00051.safetensors",
+          "consolidated-00047-of-00051.safetensors",
+          "consolidated-00048-of-00051.safetensors",
+          "consolidated-00049-of-00051.safetensors",
+          "consolidated-00050-of-00051.safetensors",
+          "consolidated-00051-of-00051.safetensors",
+          "consolidated.safetensors.index.json",
+          "generation_config.json",
+          "model-00001-of-00051.safetensors",
+          "model-00002-of-00051.safetensors",
+          "model-00003-of-00051.safetensors",
+          "model-00004-of-00051.safetensors",
+          "model-00005-of-00051.safetensors",
+          "model-00006-of-00051.safetensors",
+          "model-00007-of-00051.safetensors",
+          "model-00008-of-00051.safetensors",
+          "model-00009-of-00051.safetensors",
+          "model-00010-of-00051.safetensors",
+          "model-00011-of-00051.safetensors",
+          "model-00012-of-00051.safetensors",
+          "model-00013-of-00051.safetensors",
+          "model-00014-of-00051.safetensors",
+          "model-00015-of-00051.safetensors",
+          "model-00016-of-00051.safetensors",
+          "model-00017-of-00051.safetensors",
+          "model-00018-of-00051.safetensors",
+          "model-00019-of-00051.safetensors",
+          "model-00020-of-00051.safetensors",
+          "model-00021-of-00051.safetensors",
+          "model-00022-of-00051.safetensors",
+          "model-00023-of-00051.safetensors",
+          "model-00024-of-00051.safetensors",
+          "model-00025-of-00051.safetensors",
+          "model-00026-of-00051.safetensors",
+          "model-00027-of-00051.safetensors",
+          "model-00028-of-00051.safetensors",
+          "model-00029-of-00051.safetensors",
+          "model-00030-of-00051.safetensors",
+          "model-00031-of-00051.safetensors",
+          "model-00032-of-00051.safetensors",
+          "model-00033-of-00051.safetensors",
+          "model-00034-of-00051.safetensors",
+          "model-00035-of-00051.safetensors",
+          "model-00036-of-00051.safetensors",
+          "model-00037-of-00051.safetensors",
+          "model-00038-of-00051.safetensors",
+          "model-00039-of-00051.safetensors",
+          "model-00040-of-00051.safetensors",
+          "model-00041-of-00051.safetensors",
+          "model-00042-of-00051.safetensors",
+          "model-00043-of-00051.safetensors",
+          "model-00044-of-00051.safetensors",
+          "model-00045-of-00051.safetensors",
+          "model-00046-of-00051.safetensors",
+          "model-00047-of-00051.safetensors",
+          "model-00048-of-00051.safetensors",
+          "model-00049-of-00051.safetensors",
+          "model-00050-of-00051.safetensors",
+          "model-00051-of-00051.safetensors",
+          "model.safetensors.index.json",
+          "params.json",
+          "special_tokens_map.json",
+          "tokenizer.json",
+          "tokenizer.model",
+          "tokenizer.model.v7",
+          "tokenizer_config.json"
+        ],
+        "card_data": {
+          "library_name": "vllm",
+          "language": [
+            "en",
+            "fr",
+            "de",
+            "es",
+            "it",
+            "pt",
+            "zh",
+            "ja",
+            "ru",
+            "ko"
+          ],
+          "license": "other",
+          "license_name": "mrl",
+          "inference": false,
+          "license_link": "https://mistral.ai/licenses/MRL-0.1.md",
+          "extra_gated_prompt": "# Mistral AI Research License\nIf You want to use a Mistral Model, a Derivative or an Output for any purpose that is not expressly authorized under this Agreement, You must request a license from Mistral AI, which Mistral AI may grant to You in Mistral AI's sole discretion. To discuss such a license, please contact Mistral AI via the website contact form: https://mistral.ai/contact/\n## 1. Scope and acceptance\n**1.1. Scope of the Agreement.** This Agreement applies to any use, modification, or Distribution of any Mistral Model by You, regardless of the source You obtained a copy of such Mistral Model.\n**1.2. Acceptance.** By accessing, using, modifying, Distributing a Mistral Model, or by creating, using or distributing a Derivative of the Mistral Model, You agree to be bound by this Agreement.\n**1.3. Acceptance on behalf of a third-party.** If You accept this Agreement on behalf of Your employer or another person or entity, You warrant and represent that You have the authority to act and accept this Agreement on their behalf. In such a case, the word \"You\" in this Agreement will refer to Your employer or such other person or entity.\n## 2. License\n**2.1. Grant of rights**.  Subject to Section 3 below, Mistral AI hereby grants You a non-exclusive, royalty-free, worldwide, non-sublicensable, non-transferable, limited license to use, copy, modify, and Distribute under the conditions provided in Section 2.2 below, the Mistral Model and any Derivatives made by or for Mistral AI and to create Derivatives of the Mistral Model.\n**2.2. Distribution of Mistral Model and Derivatives made by or for Mistral AI.** Subject to Section 3 below, You may Distribute copies of the Mistral Model and/or Derivatives made by or for Mistral AI, under the following conditions: You must make available a copy of this Agreement to third-party recipients of the Mistral Models and/or Derivatives made by or for Mistral AI you Distribute, it being specified that any rights to use the Mistral Models and/or Derivatives made by or for Mistral AI shall be directly granted by Mistral AI to said third-party recipients pursuant to the Mistral AI Research License agreement executed between these parties; You must retain in all copies of the Mistral Models the following attribution notice within a \"Notice\" text file distributed as part of such copies: \"Licensed by Mistral AI under the Mistral AI Research License\".\n**2.3. Distribution of Derivatives made by or for You.** Subject to Section 3 below, You may Distribute any Derivatives made by or for You under additional or different terms and conditions, provided that: In any event, the use and modification of Mistral Model and/or Derivatives made by or for Mistral AI shall remain governed by the terms and conditions of this Agreement; You include in any such Derivatives made by or for You prominent notices stating that You modified the concerned Mistral Model; and Any terms and conditions You impose on any third-party recipients relating to Derivatives made by or for You shall neither limit such third-party recipients' use of the Mistral Model or any Derivatives made by or for Mistral AI in accordance with the Mistral AI Research License nor conflict with any of its terms and conditions.\n## 3. Limitations\n**3.1. Misrepresentation.** You must not misrepresent or imply, through any means, that the Derivatives made by or for You and/or any modified version of the Mistral Model You Distribute under your name and responsibility is an official product of Mistral AI or has been endorsed, approved or validated by Mistral AI, unless You are authorized by Us to do so in writing.\n**3.2. Usage Limitation.** You shall only use the Mistral Models, Derivatives (whether or not created by Mistral AI) and Outputs for Research Purposes.\n## 4. Intellectual Property\n**4.1. Trademarks.** No trademark licenses are granted under this Agreement, and in connection with the Mistral Models, You may not use any name or mark owned by or associated with Mistral AI or any of its affiliates, except (i) as required for reasonable and customary use in describing and Distributing the Mistral Models and Derivatives made by or for Mistral AI and (ii) for attribution purposes as required by this Agreement.\n**4.2. Outputs.** We claim no ownership rights in and to the Outputs. You are solely responsible for the Outputs You generate and their subsequent uses in accordance with this Agreement. Any Outputs shall be subject to the restrictions set out in Section 3 of this Agreement.\n**4.3. Derivatives.** By entering into this Agreement, You accept that any Derivatives that You may create or that may be created for You shall be subject to the restrictions set out in Section 3 of this Agreement.\n## 5. Liability\n**5.1. Limitation of liability.** In no event, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall Mistral AI be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this Agreement or out of the use or inability to use the Mistral Models and Derivatives (including but not limited to damages for loss of data, loss of goodwill, loss of expected profit or savings, work stoppage, computer failure or malfunction, or any damage caused by malware or security breaches), even if  Mistral AI has been advised of the possibility of such damages.\n**5.2. Indemnification.** You agree to indemnify and hold harmless Mistral AI from and against any claims, damages, or losses arising out of or related to Your use or Distribution of the Mistral Models and Derivatives.\n## 6. Warranty\n**6.1. Disclaimer.** Unless required by applicable law or prior agreed to by Mistral AI in writing, Mistral AI provides the Mistral Models and Derivatives on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. Mistral AI does not represent nor warrant that the Mistral Models and Derivatives will be error-free, meet Your or any third party's requirements, be secure or will allow You or any third party to achieve any kind of result or generate any kind of content. You are solely responsible for determining the appropriateness of using or Distributing the Mistral Models and Derivatives and assume any risks associated with Your exercise of rights under this Agreement.\n## 7. Termination\n**7.1. Term.** This Agreement is effective as of the date of your acceptance of this Agreement or access to the concerned Mistral Models or Derivatives and will continue until terminated in accordance with the following terms.\n**7.2. Termination.** Mistral AI may terminate this Agreement at any time if You are in breach of this Agreement. Upon termination of this Agreement, You must cease to use all Mistral Models and Derivatives and shall permanently delete any copy thereof. The following provisions, in their relevant parts, will survive any termination or expiration of this Agreement, each for the duration necessary to achieve its own intended purpose (e.g. the liability provision will survive until the end of the applicable limitation period):Sections 5 (Liability), 6(Warranty), 7 (Termination) and 8 (General Provisions).\n**7.3. Litigation.** If You initiate any legal action or proceedings against Us or any other entity (including a cross-claim or counterclaim in a lawsuit), alleging that the Model or a Derivative, or any part thereof, infringe upon intellectual property or other rights owned or licensable by You, then any licenses granted to You under this Agreement will immediately terminate as of the date such legal action or claim is filed or initiated.\n## 8. General provisions\n**8.1. Governing laws.** This Agreement will be governed by the laws of France, without regard to choice of law principles, and the UN Convention on Contracts for the International Sale of Goods does not apply to this Agreement.\n**8.2. Competent jurisdiction.** The courts of Paris shall have exclusive jurisdiction of any dispute arising out of this Agreement.\n**8.3. Severability.** If any provision of this Agreement is held to be invalid, illegal or unenforceable, the remaining provisions shall be unaffected thereby and remain valid as if such provision had not been set forth herein.\n## 9. Definitions\n\"Agreement\": means this Mistral AI Research License agreement governing the access, use, and Distribution of the Mistral Models, Derivatives and Outputs.\n\"Derivative\": means any (i) modified version of the Mistral Model (including but not limited to any customized or fine-tuned version thereof), (ii) work based on the Mistral Model, or (iii) any other derivative work thereof.\n\"Distribution\", \"Distributing\", \"Distribute\" or \"Distributed\": means supplying, providing or making available, by any means, a copy of the Mistral Models and/or the Derivatives as the case may be, subject to Section 3 of this Agreement.\n\"Mistral AI\", \"We\" or \"Us\": means Mistral AI, a French société par actions simplifiée registered in the Paris commercial registry under the number 952 418 325, and having its registered seat at 15, rue des Halles, 75001 Paris.\n\"Mistral Model\": means the foundational large language model(s), and its elements which include algorithms, software, instructed checkpoints, parameters, source code (inference code, evaluation code and, if applicable, fine-tuning code) and any other elements associated thereto made available by Mistral AI under this Agreement, including, if any, the technical documentation, manuals and instructions for the use and operation thereof.\n\"Research Purposes\": means any use of a Mistral Model,  Derivative, or Output that is solely for (a) personal, scientific or academic research, and (b) for non-profit and non-commercial purposes, and not directly or indirectly connected to any commercial activities or business operations. For illustration purposes, Research Purposes does not include (1) any usage of the Mistral Model, Derivative or Output by individuals or contractors employed in or engaged by companies in the context of (a) their daily tasks, or (b) any activity (including but not limited to any testing or proof-of-concept) that is intended to generate revenue, nor (2) any Distribution by a commercial entity of the Mistral Model, Derivative or Output whether in return for payment or free of charge, in any medium or form, including but not limited to through a hosted or managed service (e.g. SaaS, cloud instances, etc.), or behind a software layer.\n\"Outputs\": means any content generated by the operation of the Mistral Models or the Derivatives from  a prompt (i.e., text instructions) provided by users. For the avoidance of doubt, Outputs do not include any components of a Mistral Models, such as any fine-tuned versions of the Mistral Models, the weights, or parameters.\n\"You\": means the individual or entity entering into this Agreement with Mistral AI.\n\n*Mistral AI processes your personal data below to provide the model and enforce its license. If you are affiliated with a commercial entity, we may also send you communications about our models. For more information on your rights and data handling, please see our <a href=\"https://mistral.ai/terms/\">privacy policy</a>.*",
+          "extra_gated_fields": {
+            "First Name": "text",
+            "Last Name": "text",
+            "Country": "country",
+            "Affiliation": "text",
+            "Job title": "text",
+            "I understand that I can only use the model, any derivative versions and their outputs for non-commercial research purposes": "checkbox",
+            "I understand that if I am a commercial entity, I am not permitted to use or distribute the model internally or externally, or expose it in my own offerings without a commercial license": "checkbox",
+            "I understand that if I upload the model, or any derivative version, on any platform, I must include the Mistral Research License": "checkbox",
+            "I understand that for commercial use of the model, I can contact Mistral or use the Mistral AI API on la Plateforme or any of our cloud provider partners": "checkbox",
+            "By clicking Submit below I accept the terms of the license and acknowledge that the information I provide will be collected stored processed and shared in accordance with the Mistral Privacy Policy": "checkbox",
+            "geo": "ip_location"
+          },
+          "extra_gated_description": "Mistral AI processes your personal data below to provide the model and enforce its license. If you are affiliated with a commercial entity, we may also send you communications about our models. For more information on your rights and data handling, please see our <a href=\"https://mistral.ai/terms/\">privacy policy</a>.",
+          "extra_gated_button_content": "Submit",
+          "tags": [
+            "mistral-common"
+          ]
+        }
+      }
+    },
+    "sources": {
+      "paper": "https://arxiv.org/abs/2412.01784v3",
+      "paper_version": 3,
+      "repositories": {
+        "SandbagDetect": {
+          "url": "https://github.com/camtice/SandbagDetect.git",
+          "commit": "f8d5713e26aa47dcee447f3d65f67127f6382787"
+        },
+        "noise_injection_extended": {
+          "url": "https://github.com/camtice/noise_injection_extended.git",
+          "commit": "6c40221bd8f4f13d725006f8a003ef2584af9ab5"
+        }
+      },
+      "inspect_submodule": "6fe316f6f846f59caed0f6db552df1803e980f7b",
+      "files": {
+        "sources/SandbagDetect/src/Plotter.py": "d9468ac650a5119e09de38d0240ea13fd78812b24d6569ebec193b7431a960f8",
+        "sources/SandbagDetect/src/helper_functions.py": "bb62919143afc239a1613b601a461ce71f76c139490412400e67e87688c2e0d3",
+        "sources/SandbagDetect/src/Analyzer.py": "cb0f2ce9a9df06cb6a442e0e1f1687b5237035531d39060c8662d604f85f74ca",
+        "sources/SandbagDetect/src/config.py": "a4b3266e9ac2db07c01226d07192c6b8ff0ad8958202bede7f77fca78c2b1711",
+        "sources/SandbagDetect/src/init.py": "d6b79820e281c75db286bef2f8a3b480b18cee3cbc9d642c23efff9be3a53688",
+        "sources/SandbagDetect/src/SystemPrompt.py": "d581d1531711c8b7d07ee2e382f5b673e8e560f2026900f194823ca913af22c2",
+        "sources/SandbagDetect/src/main.py": "227b19fc58204ac9db1f03ef7edf229561e558229d7e1f5d1f1d3bcf98c705bd",
+        "sources/SandbagDetect/src/config_template.py": "422bde69e82e74112e4eed40c6c627829ae406a43da3d1bcc4a48d97c8580c6b",
+        "sources/SandbagDetect/src/exp_setup.py": "3df84090ffeb334bbbca763c47596a7bb6cdaa0395a35a3c34dbc5c3849250ce",
+        "sources/SandbagDetect/src/load_model_functions.py": "eeaa87c96add6d3637bdf6bd872b8ccdee66e456c50f896542f8e3c5e32589ca",
+        "sources/SandbagDetect/src/AnswerGenerators.py": "8fa199f36eb15f803404bc1741c6bbb1c6d135a4a563641df50b40dd596be7a6",
+        "sources/SandbagDetect/src/layer-by-layer_experiment.py": "b374f25d4658fe9f2f5fbe70f55d8bb42c8235d55f63156d45bfa468a525fee7",
+        "sources/SandbagDetect/src/NoiseInjection.py": "5c8e4d823401b6af7946c6e154cad10f097b8838215254dd1e2c49bd88e0ece1",
+        "sources/SandbagDetect/dataset-conversion/format_tinygsm_8k.ipynb": "f76ba2ddb64908b27eca03cdded8d95fe8abd65c35904c50c160b9a636a038b1",
+        "sources/SandbagDetect/dataset-conversion/tiny_ARC_AI2_dataset_format.ipynb": "fb71f84213cf0e8863af6d1f6468bf2c9798150ad361c7bcdf2c303bfca2c158",
+        "sources/SandbagDetect/dataset-conversion/comm_functions.py": "d5fa01c3659237962ef17494a96b3f3e61b5e868fad3a9edac3da9a05a756836",
+        "sources/SandbagDetect/dataset-conversion/tiny_mmlu_data_finetuning.ipynb": "e5abc37cfbf34667a447a36a7b0725d39a913fead405eadde14a2c6d41adb47f",
+        "sources/SandbagDetect/dataset-conversion/tiny_mmlu_dataset_format.ipynb": "e16495388ae7bae4a1790a091be4bc4f25eb9deeb60ea3f2097cb3478ab739ba",
+        "sources/SandbagDetect/data_analysis_and_plotting/sandbag_max_plotting.py": "125b82e3aa82fb0dce67b4ea1e063d9923a5cdeb6dcf4e03cc5a275ff97a1749",
+        "sources/SandbagDetect/data_analysis_and_plotting/NeurIPS_classifier.py": "2f5660223feac077f8216ad6723c733621346d3d8249cf8c2ab33134adccc6e9",
+        "sources/SandbagDetect/data_analysis_and_plotting/sandbag_average_plotting.py": "f950e934d666e131c60eea6dc33362ec70232da08f30a230d49e0704d9f22a31",
+        "sources/SandbagDetect/data_analysis_and_plotting/data_aggregation.py": "911ca2ad137dfd7d648bce655de6739d695a53fb8f680ed65f0994f8e3e11f94",
+        "sources/noise_injection_extended/evals/pw_false_gsm8k.py": "3b709f2f49eecaf788af0a2fa8047ddd2f2fc144f20da0afbd831d622128e7fb",
+        "sources/noise_injection_extended/evals/prompt_gsm8k_sandbag.py": "9eee65e619feebf39afe53016bcd82ade9470c9b09ab167edfffc32efa28b8d0",
+        "sources/noise_injection_extended/evals/gsm8k.py": "c5dbfa2ffd3bdfcf3902673e7658ac4d542451f4341e72d8ac5d91b7f6aa0def",
+        "sources/noise_injection_extended/evals/apps.py": "80b2f2b0de10974d146aed8216ad6b335fbe68caec9e0d398a846102f65dc26b",
+        "sources/noise_injection_extended/evals/gsm8k_realistic_no_sandbag.py": "9eb9123e6a25a3ca3af0884d0bfb438cfa589a2993647e692d55cd8d0100f8ec",
+        "sources/noise_injection_extended/evals/pw_gsm8k.py": "a7d7cf25f3da03f3f94668a58abc8e6ca37983a5f93863a2d321cae6a6e69c27",
+        "sources/noise_injection_extended/evals/mmlu.py": "58776a0314589462509815ec1245c25af9d5aa205edb5faab48076265d0c79f6",
+        "sources/noise_injection_extended/evals/multi_shot_prompt_sandbag_gsm8k.py": "a4d41a945f77c4354b22b9f25a944ee96351724c85e3285d9fe5049ece3c3ce2",
+        "sources/noise_injection_extended/evals/clement_mistral_large_sandbag.py": "c200cbf85a5ae80fd8b5bf8d0867c541b1c49e9163c609d2d9cfd33c3001e9b5",
+        "sources/noise_injection_extended/evals/gsm8k_realistic_sandbagging.py": "f6c8d71257f5e3aee2657d93641aa82b5d2afd1a018b7beac7beca0a84eab6ea",
+        "sources/noise_injection_extended/evals/sandbag_mmlu.py": "b47feab45ac1ee48da8dfa9c669999dec06d4af48dea3b8dab574a3814e60ac0",
+        "sources/noise_injection_extended/evals/math/utils.py": "796f54222ac3c94884fa6800e188f6b9835a9d7a7c48bf0d735149dd5769d0b4",
+        "sources/noise_injection_extended/evals/math/math.py": "feb5d0c3ba308a7e5cbb7c0ea8d5489f832a4c071d887f607663ca5f0bb16004",
+        "sources/noise_injection_extended/configs/default.yaml": "00e402c98e20c8a3bc29f488ed48e0e7994286bd7660278d7251be37b5084503",
+        "sources/noise_injection_extended/analysis/analyze_noise.py": "736ff717ffdb27acea5038aadc6c275a34ad5954415190413bf5e4c8ae21bc87",
+        "sources/noise_injection_extended/analysis/plot_noise.py": "43d8f050cfe2802f30fd9f7d220f7c2ade7c5d973113df7d576d92de3360603d",
+        "sources/noise_injection_extended/analysis/config_storage/analysis_config.yaml": "4e64f4e9bb7fb3f700fb9578ecef6a308bfa95c8f6892da0289772aba55b6bf2",
+        "sources/noise_injection_extended/inspect_ai_/src/inspect_ai/model/_providers/noise_hf.py": "093910bb714c96e1e97dc360d23d7ef47370a9aadeee172945925c1457b6f83d",
+        "sources/noise_injection_extended/inspect_ai_/src/inspect_ai/scorer/_common.py": "c01d72d708b20c7d877cc86910c1ea893f89f0ebb36b625707124c54704619cb",
+        "sources/paper-v3.html": "e83aa022715e80f753627164cabb41b97b4b46a686a7998fc0d886c972d9a3b6"
+      }
+    },
+    "data_sha256": "60a6055cfce24a52a0e531c6de6f0b2790f0ea545cbe3d141d4444f994e90c5f",
+    "environment": {
+      "python": "3.10.12",
+      "platform": "Linux-6.8.0-111-generic-x86_64-with-glibc2.35",
+      "packages": {
+        "torch": "2.5.1+cpu",
+        "nvidia-nccl-cu12": "2.32.6",
+        "yarl": "1.25.1",
+        "attrs": "26.1.0",
+        "networkx": "3.4.2",
+        "multidict": "7.1.0",
+        "Jinja2": "3.1.6",
+        "sympy": "1.13.1",
+        "mpmath": "1.3.0",
+        "datasets": "3.3.2",
+        "kiwisolver": "1.5.1",
+        "PyYAML": "6.0.3",
+        "filelock": "4.1.0",
+        "exceptiongroup": "1.3.1",
+        "scipy": "1.14.1",
+        "numpy": "1.26.4",
+        "propcache": "0.5.4",
+        "urllib3": "2.8.0",
+        "aiohttp": "3.14.5",
+        "soupsieve": "2.10",
+        "idna": "3.20",
+        "contourpy": "1.3.2",
+        "regex": "2026.9.29",
+        "sentencepiece": "0.2.0",
+        "huggingface-hub": "0.26.2",
+        "dill": "0.3.8",
+        "tqdm": "4.70.1",
+        "scikit-learn": "1.5.2",
+        "transformers": "4.46.0",
+        "pandas": "2.3.3",
+        "tomli": "2.5.0",
+        "xgboost": "2.1.2",
+        "aiohappyeyeballs": "2.7.1",
+        "threadpoolctl": "3.8.0",
+        "typing_extensions": "4.16.0",
+        "pluggy": "1.7.0",
+        "tiktoken": "0.6.0",
+        "cloudpickle": "3.1.2",
+        "certifi": "2026.10.23",
+        "pip": "22.0.2",
+        "pytest": "8.3.3",
+        "fonttools": "4.65.0",
+        "pyarrow": "19.0.1",
+        "einops": "0.8.0",
+        "cycler": "0.12.1",
+        "psutil": "7.2.2",
+        "aiosignal": "1.4.0",
+        "charset-normalizer": "3.5.2",
+        "multiprocess": "0.70.16",
+        "pyparsing": "3.3.3",
+        "requests": "2.34.2",
+        "frozenlist": "1.8.0",
+        "six": "1.17.0",
+        "xxhash": "4.1.0",
+        "peft": "0.13.2",
+        "safetensors": "0.4.5",
+        "packaging": "26.3",
+        "async-timeout": "5.0.1",
+        "pytz": "2026.6",
+        "joblib": "1.6.0",
+        "beautifulsoup4": "4.13.3",
+        "tokenizers": "0.20.3",
+        "pillow": "12.3.0",
+        "tzdata": "2026.6",
+        "matplotlib": "3.9.2",
+        "setuptools": "59.6.0",
+        "python-dateutil": "3.0.0",
+        "fsspec": "2024.12.0",
+        "iniconfig": "2.3.1",
+        "MarkupSafe": "3.0.3",
+        "accelerate": "1.1.1"
+      },
+      "cuda": null,
+      "cuda_available": false,
+      "torch_threads": 4
+    }
+  },
+  "started_utc": "2026-11-16T02:52:40.898621+00:00",
+  "status": "started",
+  "interpretation": "Random 1M-parameter model, first 3 AI2 rows; workflow validation only, not a scientific reproduction"
+}

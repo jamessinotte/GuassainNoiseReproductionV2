@@ -1,0 +1,59 @@
+{
+  "paper": "https://arxiv.org/abs/2412.01784v3",
+  "paper_version": 3,
+  "repositories": {
+    "SandbagDetect": {
+      "url": "https://github.com/camtice/SandbagDetect.git",
+      "commit": "f8d5713e26aa47dcee447f3d65f67127f6382787"
+    },
+    "noise_injection_extended": {
+      "url": "https://github.com/camtice/noise_injection_extended.git",
+      "commit": "6c40221bd8f4f13d725006f8a003ef2584af9ab5"
+    }
+  },
+  "inspect_submodule": "6fe316f6f846f59caed0f6db552df1803e980f7b",
+  "files": {
+    "sources/SandbagDetect/src/Plotter.py": "d9468ac650a5119e09de38d0240ea13fd78812b24d6569ebec193b7431a960f8",
+    "sources/SandbagDetect/src/helper_functions.py": "bb62919143afc239a1613b601a461ce71f76c139490412400e67e87688c2e0d3",
+    "sources/SandbagDetect/src/Analyzer.py": "cb0f2ce9a9df06cb6a442e0e1f1687b5237035531d39060c8662d604f85f74ca",
+    "sources/SandbagDetect/src/config.py": "a4b3266e9ac2db07c01226d07192c6b8ff0ad8958202bede7f77fca78c2b1711",
+    "sources/SandbagDetect/src/init.py": "d6b79820e281c75db286bef2f8a3b480b18cee3cbc9d642c23efff9be3a53688",
+    "sources/SandbagDetect/src/SystemPrompt.py": "d581d1531711c8b7d07ee2e382f5b673e8e560f2026900f194823ca913af22c2",
+    "sources/SandbagDetect/src/main.py": "227b19fc58204ac9db1f03ef7edf229561e558229d7e1f5d1f1d3bcf98c705bd",
+    "sources/SandbagDetect/src/config_template.py": "422bde69e82e74112e4eed40c6c627829ae406a43da3d1bcc4a48d97c8580c6b",
+    "sources/SandbagDetect/src/exp_setup.py": "3df84090ffeb334bbbca763c47596a7bb6cdaa0395a35a3c34dbc5c3849250ce",
+    "sources/SandbagDetect/src/load_model_functions.py": "eeaa87c96add6d3637bdf6bd872b8ccdee66e456c50f896542f8e3c5e32589ca",
+    "sources/SandbagDetect/src/AnswerGenerators.py": "8fa199f36eb15f803404bc1741c6bbb1c6d135a4a563641df50b40dd596be7a6",
+    "sources/SandbagDetect/src/layer-by-layer_experiment.py": "b374f25d4658fe9f2f5fbe70f55d8bb42c8235d55f63156d45bfa468a525fee7",
+    "sources/SandbagDetect/src/NoiseInjection.py": "5c8e4d823401b6af7946c6e154cad10f097b8838215254dd1e2c49bd88e0ece1",
+    "sources/SandbagDetect/dataset-conversion/format_tinygsm_8k.ipynb": "f76ba2ddb64908b27eca03cdded8d95fe8abd65c35904c50c160b9a636a038b1",
+    "sources/SandbagDetect/dataset-conversion/tiny_ARC_AI2_dataset_format.ipynb": "fb71f84213cf0e8863af6d1f6468bf2c9798150ad361c7bcdf2c303bfca2c158",
+    "sources/SandbagDetect/dataset-conversion/comm_functions.py": "d5fa01c3659237962ef17494a96b3f3e61b5e868fad3a9edac3da9a05a756836",
+    "sources/SandbagDetect/dataset-conversion/tiny_mmlu_data_finetuning.ipynb": "e5abc37cfbf34667a447a36a7b0725d39a913fead405eadde14a2c6d41adb47f",
+    "sources/SandbagDetect/dataset-conversion/tiny_mmlu_dataset_format.ipynb": "e16495388ae7bae4a1790a091be4bc4f25eb9deeb60ea3f2097cb3478ab739ba",
+    "sources/SandbagDetect/data_analysis_and_plotting/sandbag_max_plotting.py": "125b82e3aa82fb0dce67b4ea1e063d9923a5cdeb6dcf4e03cc5a275ff97a1749",
+    "sources/SandbagDetect/data_analysis_and_plotting/NeurIPS_classifier.py": "2f5660223feac077f8216ad6723c733621346d3d8249cf8c2ab33134adccc6e9",
+    "sources/SandbagDetect/data_analysis_and_plotting/sandbag_average_plotting.py": "f950e934d666e131c60eea6dc33362ec70232da08f30a230d49e0704d9f22a31",
+    "sources/SandbagDetect/data_analysis_and_plotting/data_aggregation.py": "911ca2ad137dfd7d648bce655de6739d695a53fb8f680ed65f0994f8e3e11f94",
+    "sources/noise_injection_extended/evals/pw_false_gsm8k.py": "3b709f2f49eecaf788af0a2fa8047ddd2f2fc144f20da0afbd831d622128e7fb",
+    "sources/noise_injection_extended/evals/prompt_gsm8k_sandbag.py": "9eee65e619feebf39afe53016bcd82ade9470c9b09ab167edfffc32efa28b8d0",
+    "sources/noise_injection_extended/evals/gsm8k.py": "c5dbfa2ffd3bdfcf3902673e7658ac4d542451f4341e72d8ac5d91b7f6aa0def",
+    "sources/noise_injection_extended/evals/apps.py": "80b2f2b0de10974d146aed8216ad6b335fbe68caec9e0d398a846102f65dc26b",
+    "sources/noise_injection_extended/evals/gsm8k_realistic_no_sandbag.py": "9eb9123e6a25a3ca3af0884d0bfb438cfa589a2993647e692d55cd8d0100f8ec",
+    "sources/noise_injection_extended/evals/pw_gsm8k.py": "a7d7cf25f3da03f3f94668a58abc8e6ca37983a5f93863a2d321cae6a6e69c27",
+    "sources/noise_injection_extended/evals/mmlu.py": "58776a0314589462509815ec1245c25af9d5aa205edb5faab48076265d0c79f6",
+    "sources/noise_injection_extended/evals/multi_shot_prompt_sandbag_gsm8k.py": "a4d41a945f77c4354b22b9f25a944ee96351724c85e3285d9fe5049ece3c3ce2",
+    "sources/noise_injection_extended/evals/clement_mistral_large_sandbag.py": "c200cbf85a5ae80fd8b5bf8d0867c541b1c49e9163c609d2d9cfd33c3001e9b5",
+    "sources/noise_injection_extended/evals/gsm8k_realistic_sandbagging.py": "f6c8d71257f5e3aee2657d93641aa82b5d2afd1a018b7beac7beca0a84eab6ea",
+    "sources/noise_injection_extended/evals/sandbag_mmlu.py": "b47feab45ac1ee48da8dfa9c669999dec06d4af48dea3b8dab574a3814e60ac0",
+    "sources/noise_injection_extended/evals/math/utils.py": "796f54222ac3c94884fa6800e188f6b9835a9d7a7c48bf0d735149dd5769d0b4",
+    "sources/noise_injection_extended/evals/math/math.py": "feb5d0c3ba308a7e5cbb7c0ea8d5489f832a4c071d887f607663ca5f0bb16004",
+    "sources/noise_injection_extended/configs/default.yaml": "00e402c98e20c8a3bc29f488ed48e0e7994286bd7660278d7251be37b5084503",
+    "sources/noise_injection_extended/analysis/analyze_noise.py": "736ff717ffdb27acea5038aadc6c275a34ad5954415190413bf5e4c8ae21bc87",
+    "sources/noise_injection_extended/analysis/plot_noise.py": "43d8f050cfe2802f30fd9f7d220f7c2ade7c5d973113df7d576d92de3360603d",
+    "sources/noise_injection_extended/analysis/config_storage/analysis_config.yaml": "4e64f4e9bb7fb3f700fb9578ecef6a308bfa95c8f6892da0289772aba55b6bf2",
+    "sources/noise_injection_extended/inspect_ai_/src/inspect_ai/model/_providers/noise_hf.py": "093910bb714c96e1e97dc360d23d7ef47370a9aadeee172945925c1457b6f83d",
+    "sources/noise_injection_extended/inspect_ai_/src/inspect_ai/scorer/_common.py": "c01d72d708b20c7d877cc86910c1ea893f89f0ebb36b625707124c54704619cb",
+    "sources/paper-v3.html": "e83aa022715e80f753627164cabb41b97b4b46a686a7998fc0d886c972d9a3b6"
+  }
+}

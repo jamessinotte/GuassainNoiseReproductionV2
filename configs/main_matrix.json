@@ -1,0 +1,19 @@
+{
+  "jobs": [
+    "configs/full/llama8b_ai2.json",
+    "configs/full/llama8b_mmlu.json",
+    "configs/full/llama8b_wmdp.json",
+    "configs/full/mistral7b_ai2.json",
+    "configs/full/mistral7b_mmlu.json",
+    "configs/full/mistral7b_wmdp.json",
+    "configs/full/phi_mini_ai2.json",
+    "configs/full/phi_mini_mmlu.json",
+    "configs/full/phi_mini_wmdp.json",
+    "configs/full/phi_small_ai2.json",
+    "configs/full/phi_small_mmlu.json",
+    "configs/full/phi_small_wmdp.json",
+    "configs/full/phi_medium_ai2.json",
+    "configs/full/phi_medium_mmlu.json",
+    "configs/full/phi_medium_wmdp.json"
+  ]
+}

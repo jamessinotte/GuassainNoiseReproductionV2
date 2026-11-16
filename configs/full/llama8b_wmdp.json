@@ -1,0 +1,62 @@
+{
+  "extends": "../mcq.json",
+  "name": "llama8b_wmdp_paper_v3",
+  "model": {
+    "id": "meta-llama/Meta-Llama-3-8B-Instruct"
+  },
+  "data": {
+    "path": "sources/SandbagDetect/data/mod_WMDP_without_password.jsonl",
+    "sha256": "6ff31387881c04fda5a92547cc5d46e4cffc9fe99b5a2ddd4c3d676dc1fc44ab",
+    "expected_count": 145,
+    "answer_values": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  "seed_groups": {
+    "v1": [
+      87989,
+      48679,
+      66772,
+      5711,
+      61589
+    ],
+    "v2": [
+      59308,
+      66622,
+      655,
+      45954,
+      65365
+    ],
+    "v3": [
+      37286,
+      86819,
+      84355,
+      99942,
+      19603
+    ],
+    "v4": [
+      39178,
+      55721,
+      86140,
+      80306,
+      90947
+    ],
+    "v5": [
+      22289,
+      57327,
+      71407,
+      9674,
+      24925
+    ]
+  },
+  "prompt": {
+    "family": "Llama",
+    "format": "chat"
+  },
+  "analysis_group": "llama8b",
+  "benchmark": "wmdp",
+  "evidence": "Paper v3 Appendix A prompts; 101-point methods grid; observed archive seeds. Not a historical exact replay."
+}

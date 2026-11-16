@@ -1,0 +1,40 @@
+{
+  "extends": "mcq.json",
+  "name": "smollm2_135m_local_pilot",
+  "evidence": "Smaller trained model and first 10 AI2 rows; feasibility pilot, not paper evidence",
+  "model": {
+    "id": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "device": "cuda:0",
+    "dtype": "bfloat16",
+    "trust_remote_code": false
+  },
+  "data": {
+    "path": "sources/SandbagDetect/data/tiny_AI2_formatted.jsonl",
+    "sha256": "60a6055cfce24a52a0e531c6de6f0b2790f0ea545cbe3d141d4444f994e90c5f",
+    "expected_count": 100,
+    "answer_values": [
+      "2",
+      "3",
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "limit": 10
+  },
+  "noise": {
+    "sweep": [
+      0,
+      0.001,
+      0.003
+    ]
+  },
+  "seed_groups": {
+    "smoke": [
+      11,
+      22
+    ]
+  },
+  "hash_each_trial": false,
+  "verify_every_restoration": true
+}
